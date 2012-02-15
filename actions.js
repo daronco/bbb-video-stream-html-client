@@ -1,15 +1,19 @@
 $(document).ready(function() {
 
+    setup_clear = function(wrapper, width, height) {
+        $(wrapper).empty();
+        $(wrapper).css("width", width);
+        $(wrapper).css("height", height);
+    }
+
     setup_jwplayer = function(wrapper, ip, meeting, stream) {
-        var streamer = "rtmp://" + ip + "/video/" + meeting;
+        var url = "rtmp://" + ip + "/video/" + meeting;
 
         // TODO: for now assuming we will never have bigger resolutions...
         var width = stream.substring(0, 3);
         var height = stream.substring(4, 7);
 
-        $(wrapper).empty();
-        $(wrapper).css("width", width);
-        $(wrapper).css("height", height);
+        setup_clear(wrapper, width, height);
 
         var el = $('<div></div>');
         el.attr("id", "mediaplayer");
@@ -20,8 +24,8 @@ $(document).ready(function() {
             id: 'playerID',
             width: width,
             height: height,
-            file: stream,       // ex: '320x2401-1328884730718'
-            streamer: streamer, // ex: 'rtmp://192.160.0.100/video/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1328884719358'
+            file: stream,   // ex: '320x2401-1328884730718'
+            streamer: url,  // ex: 'rtmp://192.160.0.100/video/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1328884719358'
             autostart: 'true',
             provider: 'rtmp',
             duration: '0',
@@ -39,9 +43,7 @@ $(document).ready(function() {
         var width = stream.substring(0, 3);
         var height = stream.substring(4, 7);
 
-        $(wrapper).empty();
-        $(wrapper).css("width", width);
-        $(wrapper).css("height", height);
+        setup_clear(wrapper, width, height);
 
         var el = $('<a></a>');
         el.addClass("flowplayer")
