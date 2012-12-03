@@ -4,7 +4,7 @@ Some attempts to show a BigBlueButton video stream in an html with a standalone 
 
 Just open `index.html` and try it!
 
-![Screenshot](https://raw.github.com/daronco/bbb-video-stream-html-client/screenshot.png)
+![Screenshot](https://raw.github.com/daronco/bbb-video-stream-html-client/master/screenshot.png)
 
 ## How to
 
